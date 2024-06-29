@@ -7,10 +7,10 @@ function display_help() {
     echo "  $0 --help        : Wyświetla pomoc"
 }
 
-if [ "$1" = "--date" ]; then
+if [ "$1" = "--date" ] || [ "$1" = "-d" ]; then
     date +"%Y-%m-%d"
 
-elif [ "$1" = "--logs" ]; then
+elif [ "$1" = "--logs" ] || [ "$1" = "-l" ]; then
     if [ -n "$2" ] && [ "$2" -eq "$2" ] 2>/dev/null; then
         num_logs="$2"
     else
@@ -23,7 +23,7 @@ elif [ "$1" = "--logs" ]; then
         echo "Nazwa skryptu: $0" >> "$filename"
         echo "Data utworzenia: $(date '+%Y-%m-%d %H:%M:%S')" >> "$filename"
     done
-elif [ "$1" = "--help" ]; then
+elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     display_help
 
 else

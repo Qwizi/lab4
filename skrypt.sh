@@ -26,6 +26,23 @@ elif [ "$1" = "--logs" ] || [ "$1" = "-l" ]; then
         echo "Data utworzenia: $(date '+%Y-%m-%d %H:%M:%S')" >> "$filename"
     done
 
+
+elif [ "$1" = "--error" ] || [ "$1" = "-e" ]; then
+    if [ -n "$2" ] && [ "$2" -eq "$2" ] 2>/dev/null; then
+        num_errors="$2"
+    else
+        num_errors=100  # domyślnie 100 plików
+    fi
+
+    mkdir -p errorx
+
+    for (( i=1; i<=num_errors; i++ )); do
+        filename="errorx/error${i}.txt"
+        echo "Nazwa pliku: $filename" > "$filename"
+        echo "Nazwa skryptu: $0" >> "$filename"
+        echo "Data utworzenia: $(date '+%Y-%m-%d %H:%M:%S')" >> "$filename"
+    done
+
 elif [ "$1" = "--init" ]; then
     git clone $REPO_URL ./
     export PATH=$(pwd):$PATH

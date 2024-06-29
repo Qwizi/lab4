@@ -1,5 +1,7 @@
 #!/bin/bash
 
+REPO_URL="https://github.com/Qwizi/lab4.git"
+
 function display_help() {
     echo "Użycie: $0 <opcja>"
     echo "  $0 --date        : Wyświetla dzisiejszą datę"
@@ -23,6 +25,12 @@ elif [ "$1" = "--logs" ] || [ "$1" = "-l" ]; then
         echo "Nazwa skryptu: $0" >> "$filename"
         echo "Data utworzenia: $(date '+%Y-%m-%d %H:%M:%S')" >> "$filename"
     done
+
+elif [ "$1" = "--init" ]; then
+    git clone $REPO_URL ./
+    export PATH=$(pwd):$PATH
+    echo "Repozytorium zostało pomyślnie sklonowane i ścieżka została ustawiona w PATH."
+
 elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     display_help
 

@@ -2,9 +2,9 @@
 
 function display_help() {
     echo "Użycie: $0 <opcja>"
-    echo "  $0 --date        : Wyświetla dzisiejszą datę"
-    echo "  $0 --logs [liczba]: Tworzy podaną liczbę plików logx.txt (domyślnie 100), gdzie x to numer pliku"
-    echo "  $0 --help        : Wyświetla pomoc"
+    echo "  $0 --date (-d)        : Wyświetla dzisiejszą datę"
+    echo "  $0 --logs [liczba] (-l): Tworzy podaną liczbę plików logx.txt (domyślnie 100), gdzie x to numer pliku"
+    echo "  $0 --help (-h)      : Wyświetla pomoc"
 }
 
 if [ "$1" = "--date" ] || [ "$1" = "-d" ]; then
